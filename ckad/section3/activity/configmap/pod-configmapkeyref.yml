@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-configmap-keyref
+  labels:
+    name: conf
+spec:
+  containers:
+    - name: my-app-keyref
+      image:
+      env:
+        - name: MY_COLOR
+          valueFrom:
+            configMapKeyRef:
+              key: APP_COLOR
+              name: app-config

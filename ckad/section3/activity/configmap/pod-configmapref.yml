@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: pod-configmap-ref
+  labels:
+    name: conf
+spec:
+  containers:
+    - name: my-app
+      image:
+      envFrom:
+        - configMapRef:
+            name: app-config
+
